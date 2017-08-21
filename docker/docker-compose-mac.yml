@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  php:
+    container_name: file_consumer_php
+    build: php7
+    volumes:
+      - ..:/var/www
+      - file-consumer-unison-sync:/var/www:nocopy
+    ports:
+      - 9000:80
+  nginx:
+    container_name: file_consumer_nginx
+    build: nginx
+    ports:
+      - 8000:80
+    links:
+      - php
+    volumes_from:
+      - php
+    volumes:
+      - ../logs/nginx/:/var/log/nginx
+volumes:
+  file-consumer-unison-sync:
+    external: true
