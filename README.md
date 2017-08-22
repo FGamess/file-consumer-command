@@ -25,8 +25,7 @@ Prerequisites
 
 ###### Set up the docker stack
 
-1. From the root folder of the application
-
+1. From the root folder of the application.
 
     cd docker
 
@@ -67,11 +66,9 @@ Exit from the bash
 
 1. Connect to the php container with the www-data user.
 
-
     docker exec -itu www-data file_consumer_php bash
 
-2. Then install the vendors with composer (already installed in the php container)
-
+2. Then install the vendors with composer (already installed in the php container).
 
     composer install
 
