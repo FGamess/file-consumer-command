@@ -32,11 +32,11 @@ class FileConsumerTest extends TestCase
     }
 
     /**
-     * getFileContent method must return an array when the file exists
+     * getFileContent method must return a string when the file exists
      *
      * @test
      */
-    public function getFileContentReturnsArray()
+    public function getFileContentReturnsString()
     {
         $this->initializeSUT();
 
@@ -46,7 +46,7 @@ class FileConsumerTest extends TestCase
 
         $actual = $this->fileConsumer->getFileContent($fileResource->url());
 
-        $this->assertInternalType('array', $actual);
+        $this->assertInternalType('string', $actual);
     }
 
     /**
@@ -54,7 +54,7 @@ class FileConsumerTest extends TestCase
      *
      * @test
      * @expectedException PHPUnit\Framework\Error\Error
-     * @expectedExceptionMessageRegExp /^file\(.+\): failed to open stream: No such file or directory$/
+     * @expectedExceptionMessageRegExp /^file_get_contents\(.+\): failed to open stream: No such file or directory$/
      */
     public function getFileContentTriggerPHPError()
     {

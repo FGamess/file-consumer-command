@@ -8,10 +8,10 @@ class FileConsumer
      * Undocumented function
      *
      * @param string $resourceUrl
-     * @return array
+     * @return string
      */
-    public function getFileContent(string $resourceUrl) : array
+    public function getFileContent(string $resourceUrl) : string
     {
-        return file($resourceUrl);
+        return file_get_contents($resourceUrl);
     }
 }
