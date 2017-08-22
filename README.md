@@ -10,6 +10,9 @@ A Symfony project created on August 21, 2017, 11:51 pm.
   - [Setting www-data as owner of the files](https://github.com/FGamess/file-consumer-command#setting-www-data-as-owner-of-the-files)
   - [Install the vendors](https://github.com/FGamess/file-consumer-command#install-the-vendors)
 - [How to use](https://github.com/FGamess/file-consumer-command#how-to-use)
+  - [Display the most frequent words using limit](https://github.com/FGamess/file-consumer-command#display-the-most-frequent-word-using-limit)
+- [Testing](https://github.com/FGamess/file-consumer-command#testing))
+  - [Run the tests](https://github.com/FGamess/file-consumer-command#run-the-tests)
 
 
 Prerequisites
@@ -76,7 +79,7 @@ Exit from the bash
 How to use
 ----------
 
-###### Consume the API using CURL
+###### Display the most frequent words using limit
 
 1. Connect to the php container with the www-data user.
 
@@ -87,3 +90,30 @@ How to use
 
 
     bin/console app:consume-file https://s3-eu-west-1.amazonaws.com/secretsales-dev-test/interview/flatland.txt 100 -vv
+
+
+Testing
+-------
+
+###### Run the tests
+
+1. Unit tests
+
+Just run
+
+
+    vendor/bin/phpunit tests/Unit
+
+2. Functional tests
+
+Just run
+
+
+    vendor/bin/phpunit tests/Functional
+
+3. All tests
+
+Just run
+
+
+    vendor/bin/phpunit tests
