@@ -25,7 +25,7 @@ Prerequisites
 
 ###### Set up the docker stack
 
-1. From the root folder of the application :
+1. From the root folder of the application
 
 
     cd docker
