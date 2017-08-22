@@ -11,7 +11,7 @@ A Symfony project created on August 21, 2017, 11:51 pm.
   - [Install the vendors](https://github.com/FGamess/file-consumer-command#install-the-vendors)
 - [How to use](https://github.com/FGamess/file-consumer-command#how-to-use)
   - [Display the most frequent words using limit](https://github.com/FGamess/file-consumer-command#display-the-most-frequent-word-using-limit)
-- [Testing](https://github.com/FGamess/file-consumer-command#testing))
+- [Testing](https://github.com/FGamess/file-consumer-command#testing)
   - [Run the tests](https://github.com/FGamess/file-consumer-command#run-the-tests)
 
 
