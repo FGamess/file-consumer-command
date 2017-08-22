@@ -4,9 +4,14 @@ namespace AppBundle\Service;
 
 class FileConsumer
 {
+    /**
+     * Undocumented function
+     *
+     * @param string $resourceUrl
+     * @return array
+     */
     public function getFileContent(string $resourceUrl) : array
     {
-        $lines = file($resourceUrl);
-        return $lines;
+        return file($resourceUrl);
     }
 }

@@ -40,7 +40,7 @@ class FileConsumerTest extends TestCase
     {
         $this->initializeSUT();
 
-        $fileResource = vfsStream::newFile('large.txt')
+        $fileResource = vfsStream::newFile('test.txt')
             ->at($this->root)
         ;
 
