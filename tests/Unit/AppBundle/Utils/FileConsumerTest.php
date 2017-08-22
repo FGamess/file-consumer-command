@@ -21,7 +21,7 @@ class FileConsumerTest extends TestCase
 
     private function initializeSUT()
     {
-        return new SUT();
+        $this->fileConsumer = new SUT();
     }
 
     /**
@@ -33,7 +33,7 @@ class FileConsumerTest extends TestCase
     {
         $this->initializeSUT();
 
-        $actual = $this->fileConsumer->getFileContent();
+        $actual = $this->fileConsumer->getFileContent('/resource/url');
 
         $this->assertInternalType('array', $actual);
     }
