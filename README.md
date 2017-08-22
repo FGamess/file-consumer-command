@@ -86,7 +86,7 @@ How to use
 2. Then execute the following command
 
 
-    bin/console app:consume-file https://s3-eu-west-1.amazonaws.com/secretsales-dev-test/interview/flatland.txt 100 -vv
+    bin/console app:consume-file https://s3-eu-west-1.amazonaws.com/secretsales-dev-test/interview/flatland.txt 100
 
 
 Testing
