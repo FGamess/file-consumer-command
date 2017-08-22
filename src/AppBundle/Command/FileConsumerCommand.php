@@ -42,7 +42,7 @@ class FileConsumerCommand extends ContainerAwareCommand
             LogLevel::INFO   => OutputInterface::VERBOSITY_NORMAL,
         );
         
-        $logger = new ConsoleLogger($output);
+        $logger = new ConsoleLogger($output, $verbosityLevelMap);
         $container = $this->getContainer();
         $output->writeln(
             [
@@ -83,7 +83,7 @@ class FileConsumerCommand extends ContainerAwareCommand
 
         $output->writeln('Outputing the 100 most frequet values with their count...');
         
-        $fileConsumerLogger = new FileConsumerLogger($logger, $verbosityLevelMap);
+        $fileConsumerLogger = new FileConsumerLogger($logger);
         
         $fileConsumerLogger->outputMostFrequentWords($finalArray);
     }
