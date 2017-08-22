@@ -4,6 +4,8 @@ namespace Tests\Unit\AppBundle\Service;
 
 use AppBundle\Service\FileConsumer as SUT;
 use PHPUnit\Framework\TestCase;
+use org\bovigo\vfs\vfsStream,
+    org\bovigo\vfs\vfsStreamDirectory;
 
 class FileConsumerTest extends TestCase
 {
@@ -14,9 +16,14 @@ class FileConsumerTest extends TestCase
      */
     public $fileConsumer;
 
+    /**
+     * @var  vfsStreamDirectory
+     */
+    private $root;
+
     public function setUp()
     {
-
+        $this->root = vfsStream::setup('testDir');
     }
 
     private function initializeSUT()
@@ -33,7 +40,11 @@ class FileConsumerTest extends TestCase
     {
         $this->initializeSUT();
 
-        $actual = $this->fileConsumer->getFileContent('https://s3-eu-west-1.amazonaws.com/secretsales-dev-test/interview/flatland.txt');
+        $fileResource = vfsStream::newFile('large.txt')
+            ->at($this->root)
+        ;
+
+        $actual = $this->fileConsumer->getFileContent($fileResource->url());
 
         $this->assertInternalType('array', $actual);
     }
