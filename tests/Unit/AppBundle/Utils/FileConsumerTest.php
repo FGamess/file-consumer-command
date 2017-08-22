@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\AppBundle\Service;
 
+use AppBundle\Service\FileConsumer as SUT;
 use PHPUnit\Framework\TestCase;
 
 class FileConsumerTest extends TestCase
@@ -20,6 +21,20 @@ class FileConsumerTest extends TestCase
 
     private function initializeSUT()
     {
-        return;
+        return new SUT();
+    }
+
+    /**
+     * getFileContent method must return an array
+     *
+     * @test
+     */
+    public function getFileContentReturnsArray()
+    {
+        $this->initializeSUT();
+
+        $actual = $this->fileConsumer->getFileContent();
+
+        $this->assertInternalType('array', $actual);
     }
 }
