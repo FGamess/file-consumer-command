@@ -36,3 +36,5 @@ services:
 
     AppBundle\Service\FileConsumer:
         public: true
+    AppBundle\Service\StringUtil:
+        public: true
