@@ -30,19 +30,28 @@ class FileConsumerLogger extends TestCase
     {
         $this->logger = $this->createMock(LoggerInterface::class);
         $mostFrequentsWords = [
-            0 => [
-                'test' => 10
-            ],
-            1 => [
-                'test2' => 4
-            ],
-            2 => [
-                'test3' => 1
-            ]
+            'test' => 10,
+            'test2' => 4,
+            'test3' => 1
         ];
         $this->logger
             ->expects($this->exactly(count($mostFrequentsWords)))
             ->method('info')
+        ;
+        $this->logger
+            ->expects($this->at(0))
+            ->method('info')
+            ->with('test,10')
+        ;
+        $this->logger
+            ->expects($this->at(1))
+            ->method('info')
+            ->with('test2,4')
+        ;
+        $this->logger
+            ->expects($this->at(2))
+            ->method('info')
+            ->with('test3,1')
         ;
 
         $this->fileConsumerLogger = new SUT($this->logger);

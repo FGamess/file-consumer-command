@@ -18,9 +18,8 @@ class FileConsumerLogger
 
     public function outputMostFrequentWords(array $mostFrequentValues)
     {
-        foreach ($mostFrequentValues as $key => $value) {
-            $word = key($value);
-            $this->logger->info($word.','.$value[$word]);
+        foreach ($mostFrequentValues as $word => $count) {
+            $this->logger->info($word.','.$count);
         }
         
     }

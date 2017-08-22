@@ -53,7 +53,7 @@ class StringUtil
     {
         $mostFrequentWords = [];
         foreach ($occurrencesArray as $word => $count) {
-            $mostFrequentWords[] = [$word => $count];
+            $mostFrequentWords[$word] = $count;
             
             $limit--;
             if ($limit == 0) {
