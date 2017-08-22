@@ -44,6 +44,7 @@ class FileConsumerCommand extends ContainerAwareCommand
         
         $logger = new ConsoleLogger($output, $verbosityLevelMap);
         $container = $this->getContainer();
+        $stringUtilService = $container->get(StringUtil::class);
         $output->writeln(
             [
                 'FileConsumer tool',
@@ -64,19 +65,19 @@ class FileConsumerCommand extends ContainerAwareCommand
         $logger->info('File content retrieved successfully and converted into string.');
 
         $output->writeln('Counting all words in string...');
-        $wordsCount = $container->get(StringUtil::class)->countWordsInString($contentString);
+        $wordsCount = $stringUtilService->countWordsInString($contentString);
         $logger->info('Successfully get the number of words  into an array');
 
         $output->writeln('Counting words duplicates...');
-        $wordsDuplicates = $container->get(StringUtil::class)->countWordsDuplicates($wordsCount);
+        $wordsDuplicates = $stringUtilService->countWordsDuplicates($wordsCount);
         $logger->info('Successfully get the duplicates into an array');
 
         $output->writeln('Ascending sort and rerversing of the words duplicates array...');
-        $reverseArray = $container->get(StringUtil::class)->reverseSortWordsDuplicates($wordsDuplicates);
+        $reverseArray = $stringUtilService->reverseSortWordsDuplicates($wordsDuplicates);
         $logger->info('Successfully reversed the array of duplicates');
 
         $output->writeln('Generating the 100 most frequent values array...');
-        $finalArray = $container->get(StringUtil::class)->findMostFrequentValues($reverseArray, $limit);
+        $finalArray = $stringUtilService->findMostFrequentValues($reverseArray, $limit);
         $logger->info('Successfully generated the 100 most frequent values array !');
 
         $output->writeln('');
