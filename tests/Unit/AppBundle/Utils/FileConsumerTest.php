@@ -25,7 +25,7 @@ class FileConsumerTest extends TestCase
     }
 
     /**
-     * getFileContent method must return an array
+     * getFileContent method must return an array when the file exists
      *
      * @test
      */
@@ -33,8 +33,22 @@ class FileConsumerTest extends TestCase
     {
         $this->initializeSUT();
 
-        $actual = $this->fileConsumer->getFileContent('/resource/url');
+        $actual = $this->fileConsumer->getFileContent('https://s3-eu-west-1.amazonaws.com/secretsales-dev-test/interview/flatland.txt');
 
         $this->assertInternalType('array', $actual);
+    }
+
+    /**
+     * getFileContent method returns an empty array, when resource is not found
+     *
+     * @test
+     * @expectedException PHPUnit\Framework\Error\Error
+     * @expectedExceptionMessageRegExp /^file\(.+\): failed to open stream: No such file or directory$/
+     */
+    public function getFileContentTriggerPHPError()
+    {
+        $this->initializeSUT();
+
+        $this->fileConsumer->getFileContent('/resource/url');
     }
 }

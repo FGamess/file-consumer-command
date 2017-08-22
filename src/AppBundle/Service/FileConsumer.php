@@ -6,6 +6,7 @@ class FileConsumer
 {
     public function getFileContent(string $resourceUrl) : array
     {
-        return [];
+        $lines = file($resourceUrl);
+        return $lines;
     }
 }
