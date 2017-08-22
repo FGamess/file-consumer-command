@@ -26,6 +26,11 @@ class FileConsumerCommand extends ContainerAwareCommand
                 InputArgument::REQUIRED,
                 'resource file url'
             )
+            ->addArgument(
+                'limit',
+                InputArgument::REQUIRED,
+                'limit the output of the 100 most frequent words'
+            )
         ;
     }
 
@@ -47,7 +52,13 @@ class FileConsumerCommand extends ContainerAwareCommand
             ]
         );
 
+        /**
+         * Get input arguments
+         */
         $fileUrl = $input->getArgument('url');
+        $limit = $input->getArgument('limit');
+
+
         $output->writeln("Trying to get the file from ".$fileUrl);
         $contentString = $container->get(FileConsumer::class)->getFileContent($fileUrl);
         $logger->info('File content retrieved successfully and converted into string.');
@@ -65,7 +76,7 @@ class FileConsumerCommand extends ContainerAwareCommand
         $logger->info('Successfully reversed the array of duplicates');
 
         $output->writeln('Generating the 100 most frequent values array...');
-        $finalArray = $container->get(StringUtil::class)->findMostFrequentValues($reverseArray, 100);
+        $finalArray = $container->get(StringUtil::class)->findMostFrequentValues($reverseArray, $limit);
         $logger->info('Successfully generated the 100 most frequent values array !');
 
         $output->writeln('');

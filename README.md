@@ -1,5 +1,5 @@
 # File Cconsumer Command
-========================
+------------------------
 
 A Symfony project created on August 21, 2017, 11:51 pm.
 
@@ -86,4 +86,4 @@ How to use
 2. Then execute the following command
 
 
-    bin/console app:consume-file https://s3-eu-west-1.amazonaws.com/secretsales-dev-test/interview/flatland.txt -vv
+    bin/console app:consume-file https://s3-eu-west-1.amazonaws.com/secretsales-dev-test/interview/flatland.txt 100 -vv
