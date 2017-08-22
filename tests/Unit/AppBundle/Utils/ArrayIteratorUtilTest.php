@@ -13,6 +13,11 @@ class ArrayIteratorUtilTest extends TestCase
      */
     public $arrayIteratorUtil;
 
+    /**
+     * @var  vfsStreamDirectory
+     */
+    private $root;
+
     public function setUp()
     {
 
@@ -24,14 +29,37 @@ class ArrayIteratorUtilTest extends TestCase
     }
 
     /**
-     * Count occurrences array must return an array
+     * CountOccurrencesInArray must return an array
      * 
      * @test
      */
     public function countOccurrencesInArrayReturnsArray()
     {
-        $actual = $this->arrayIteratorUtil->countOccurrences($fileContentArray);
+        $this->initializeSUT();
+        $fileContentArray = [
+            "test"
+        ];
+        $actual = $this->arrayIteratorUtil->countOccurrencesInArray($fileContentArray);
 
         $this->assertInternalType('array', $fileContentArray);
+    }
+
+    /**
+     * CountOccurrencesInArray must return correct count
+     *
+     * @test
+     */
+    public function countOccurrencesInArrayReturnsCorrectCount()
+    {
+        $this->initializeSUT();
+        $fileContentArray = [
+            "test",
+            "test2",
+            "test"
+        ];
+
+        $actual = $this->arrayIteratorUtil->countOccurrencesInArray($fileContentArray);
+        $this->assertEquals(2, $actual['test']);
+        $this->assertEquals(1, $actual['test2']);
     }
 }
