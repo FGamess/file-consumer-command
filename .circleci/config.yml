@@ -57,7 +57,7 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - build-and-unit_tests:
-      - functional_tests:
+      - build-and-unit-tests:
+      - functional-tests:
           requires:
-            - build-and-unit_tests
+            - build-and-unit-tests
