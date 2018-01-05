@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build-and-unit-tests:
     docker:
       - image: circleci/php:latest-node-browsers
     working_directory: ~/repo
@@ -24,17 +24,31 @@ jobs:
           paths:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
-  unit_tests:
-    docker:
-      - image: circleci/php:latest-node-browsers
-    steps: 
       - run:
           name: Run Unit tests
           command: vendor/bin/phpunit tests/Unit
-  functional_tests:
+  build-and-functional-tests:
     docker:
       - image: circleci/php:latest-node-browsers
+    working_directory: ~/repo
     steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "composer.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run: mkdir var
+
+      - run:
+          name: Install project dependencies
+          command: composer install -n --prefer-dist
+
+      - save_cache:
+          paths:
+            - ./vendor
+          key: v1-dependencies-{{ checksum "composer.json" }}
       - run:
           name: Run Functional tests
           command: vendor/bin/phpunit tests/Functional
@@ -43,10 +57,7 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - build
-      - unit_tests:
-          requires:
-            - build
+      - build-and-unit_tests:
       - functional_tests:
           requires:
-            - unit_tests
+            - build-and-unit_tests
