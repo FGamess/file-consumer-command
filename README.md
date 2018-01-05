@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/fgamess/file-consumer-command/tree/master.svg?style=svg)](https://circleci.com/gh/fgamess/file-consumer-command/tree/master)
+
 [![Dependency Status](https://gemnasium.com/badges/github.com/fgamess/file-consumer-command.svg)](https://gemnasium.com/github.com/fgamess/file-consumer-command)
 
 
