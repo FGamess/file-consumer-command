@@ -38,4 +38,4 @@ jobs:
           command: vendor/bin/phpunit tests/Unit
       - run:
           name: Run Functional tests
-          command: vendor/bin/phpcs tests/Functional
+          command: vendor/bin/phpunit tests/Functional
