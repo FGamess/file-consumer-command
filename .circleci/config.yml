@@ -58,6 +58,6 @@ workflows:
   build-and-test:
     jobs:
       - build-and-unit-tests:
-      - functional-tests:
+      - build-and-functional-tests:
           requires:
             - build-and-unit-tests
