@@ -1,21 +1,22 @@
-version: '2'
+version: '3.2'
 
 services:
   php:
     container_name: file_consumer_php
-    build: php7
+    image: fgamess/symfony-php7
     volumes:
-      - ..:/var/www
+      - ..:/var/www:cached
+      - ../logs:/var/logs:cached
     ports:
       - 9000:80
   nginx:
     container_name: file_consumer_nginx
-    build: nginx
+    image: fgamess/symfony-nginx
     ports:
-      - 8000:80
+      - 14300:80
     links:
       - php
-    volumes_from:
-      - php
     volumes:
-      - ../logs/nginx/:/var/log/nginx
+      - type: bind
+        source: ../logs/nginx/
+        target: /var/log/nginx:cached
