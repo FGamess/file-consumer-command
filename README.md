@@ -4,7 +4,7 @@
 # File Consumer Command
 ------------------------
 
-A Symfony project created on August 21, 2017, 11:51 pm.
+A symfony command to display the most frequent words and their occurence using limit.
 
 ## Table of contents
 - [Prerequisites](https://github.com/FGamess/file-consumer-command#prerequisites)
@@ -23,7 +23,7 @@ Prerequisites
 
 ###### Tools required
 
-- Docker CE for Windows, Docker CE for Linux or Docker CE for MAC (require docker-sync) installed
+- Docker CE for Windows, Docker CE for Linux or Docker CE for MAC installed
 - Docker compose installed
 
 ###### Set up the docker stack
@@ -42,16 +42,12 @@ Using Docker CE on Linux (Ubuntu, Debian, Fedora...) or Docker CE on Windows (it
 then
 
     docker-compose up -d
-Sometimes, it is possible that the database container (mariadb) does not start.
+Sometimes, it is possible that the database container does not start.
 Just run this command :
 
     docker-compose start
 
-If you are on Mac OSX and that you use Docker CE for MAC. You should use [docker-sync](http://docker-sync.io/) to speed up the synchronization. I won't explain how to install it here.
-If docker-sync is already installed on your Mac, just run this command in another terminal windows :
-
-    docker-sync-stack start
-You only need this command. It will start the containers (php7, mariadb, nginx). Keep this terminal windows open.
+You only need this command. It will start the containers (php7, nginx). Keep this terminal windows open.
 
 ###### Setting www-data as owner of the files.
 
@@ -89,7 +85,7 @@ How to use
 2. Then execute the following command
 
 
-    bin/console app:consume-file https://s3-eu-west-1.amazonaws.com/secretsales-dev-test/interview/flatland.txt 100
+    bin/console app:consume-file https://github.com/fgamess/file-consumer-command/blob/master/flatland.txt 100
 
 
 Testing
