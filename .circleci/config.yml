@@ -17,8 +17,8 @@ jobs:
       - run: mkdir var
 
       - run:
-        name: Install project dependencies
-        command: composer install -n --prefer-dist
+          name: Install project dependencies
+          command: composer install -n --prefer-dist
 
       - save_cache:
           paths:
