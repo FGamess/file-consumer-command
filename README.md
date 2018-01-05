@@ -1,4 +1,7 @@
-# File Cconsumer Command
+[![Dependency Status](https://gemnasium.com/badges/github.com/fgamess/file-consumer-command.svg)](https://gemnasium.com/github.com/fgamess/file-consumer-command)
+
+
+# File Consumer Command
 ------------------------
 
 A Symfony project created on August 21, 2017, 11:51 pm.
