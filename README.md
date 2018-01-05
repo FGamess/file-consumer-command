@@ -85,7 +85,9 @@ How to use
 2. Then execute the following command
 
 
-    bin/console app:consume-file https://github.com/fgamess/file-consumer-command/blob/master/flatland.txt 100
+    bin/console app:consume-file flatland.txt 100
+
+We actually use a file located at the root folder of this application but you can use any url targeting a file.
 
 
 Testing
