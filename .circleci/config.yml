@@ -2,14 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/php:latest-node-browsers
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mysql:9.4
-
     working_directory: ~/repo
 
     steps:
@@ -32,11 +25,15 @@ jobs:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
   unit_tests:
+    docker:
+      - image: circleci/php:latest-node-browsers
     steps: 
       - run:
         name: Run Unit tests
         command: vendor/bin/phpunit tests/Unit
   functional_tests:
+    docker:
+      - image: circleci/php:latest-node-browsers
     steps:
       - run:
         name: Run Functional tests
