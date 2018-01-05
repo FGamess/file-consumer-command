@@ -29,15 +29,15 @@ jobs:
       - image: circleci/php:latest-node-browsers
     steps: 
       - run:
-        name: Run Unit tests
-        command: vendor/bin/phpunit tests/Unit
+          name: Run Unit tests
+          command: vendor/bin/phpunit tests/Unit
   functional_tests:
     docker:
       - image: circleci/php:latest-node-browsers
     steps:
       - run:
-        name: Run Functional tests
-        command: vendor/bin/phpunit tests/Functional
+          name: Run Functional tests
+          command: vendor/bin/phpunit tests/Functional
           
 workflows:
   version: 2
