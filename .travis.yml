@@ -14,9 +14,9 @@ install:
 
 addons:
   sonarcloud:
-    organization: "fgamess-github" # the key of the org you chose at step #3
+    organization: ${SONAR_ORGANIZATION} # the key of the org you chose at step #3
     token:
-      secure: 821643f326fa088a5242000075eae1414978a6c2 # encrypted value of your token
+      secure: ${SONAR_TOKEN}
     branches:
       - master
       
