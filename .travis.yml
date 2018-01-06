@@ -12,9 +12,6 @@ install:
   - docker exec -it file_consumer_php mkdir var
   - docker exec -it file_consumer_php composer install --prefer-dist
 
-script:
-  - docker exec -it file_consumer_php vendor/bin/phpunit
-  
 addons:
   sonarcloud:
     organization: "fgamess-github" # the key of the org you chose at step #3
@@ -22,6 +19,7 @@ addons:
       secure: 821643f326fa088a5242000075eae1414978a6c2 # encrypted value of your token
     branches:
       - master
+      
 script:
-  # other script steps might be done before running the actual analysis
+  - docker exec -it file_consumer_php vendor/bin/phpunit
   - sonar-scanner
