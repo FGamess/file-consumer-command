@@ -5,6 +5,7 @@ services:
 env:
   - DOCKER_COMPOSE_VERSION=3.2
 before_install:
+  - cd docker
   - docker-compose build --force-rm --no-cache
   - docker-compose up - d
 
