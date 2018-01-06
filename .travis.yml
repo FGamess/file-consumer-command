@@ -1,5 +1,15 @@
 language: php
-php:
- - 7.2
+sudo: required
+services:
+  - docker
+env:
+  - DOCKER_COMPOSE_VERSION=3.2
+before_install:
+  - docker-compose build --force-rm --no-cache
+  - docker-compose up - d
+
 install:
-    - composer install
+  - docker exec -d file_consumer_php composer install --prefer-dist
+
+script:
+  - docker exec -it file_consumer_php vendor/bin/phpunit
