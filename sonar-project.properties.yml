@@ -1,4 +1,4 @@
-sonar.projectKey=com.sonarqube.examples.standard-sqscanner-travis-project
+sonar.projectKey=file-consumer-command
 sonar.projectName=File Consumer Command project analyzed on SonarCloud using Travis
 sonar.projectVersion=1.0-SNAPSHOT
 
@@ -17,8 +17,8 @@ sonar.links.issue=https://github.com/fgamess/file-consumer-command/issues
 # =====================================================
 
 # SQ standard properties
-sonar.sources=src/main
-sonar.tests=src/test
+sonar.sources=.
+sonar.tests=tests
 
 # Properties specific to language plugins:
 #   - For JavaScript
