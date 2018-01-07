@@ -1,9 +1,12 @@
 var
 vendor
 nbproject
+reports
+logs
 
 .bash_history
 ._.DS_Store
 .composer
 .idea
 .unison
+.scannerwork
