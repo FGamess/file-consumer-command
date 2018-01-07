@@ -13,7 +13,7 @@ services:
       - app_network
   nginx:
     container_name: file_consumer_nginx
-    image: fgamess/symfony-nginx
+    image: fgamess/nginx-for-symfony
     ports:
       - 14300:80
     volumes:
