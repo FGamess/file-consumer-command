@@ -1,0 +1,28 @@
+version: '3.2'
+
+services:
+  php:
+    container_name: file_consumer_php
+    image: fgamess/php7-stack-symfony
+    volumes:
+      - .:/var/www:cached
+      - /logs:/var/logs:cached
+    ports:
+      - 9000:80
+    networks:
+      - app_network
+  nginx:
+    container_name: file_consumer_nginx
+    image: fgamess/symfony-nginx
+    ports:
+      - 14300:80
+    volumes:
+      - type: bind
+        source: /logs/nginx/
+        target: /var/log/nginx:cached
+    networks:
+      - app_network
+      
+networks:
+  app_network:
+    driver: bridge
