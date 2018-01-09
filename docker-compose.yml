@@ -6,7 +6,7 @@ services:
     image: fgamess/php7-stack-symfony
     volumes:
       - .:/var/www:cached
-      - /logs:/var/logs:cached
+      - ./logs:/var/logs:cached
     ports:
       - 9000:80
     networks:
@@ -17,8 +17,8 @@ services:
     ports:
       - 14300:80
     volumes:
-      - type: bind
-        source: /logs/nginx/
+      - type: volume
+        source: ./logs/nginx/
         target: /var/log/nginx:cached
     networks:
       - app_network
@@ -26,3 +26,5 @@ services:
 networks:
   app_network:
     driver: bridge
+volumes:
+    logs:
