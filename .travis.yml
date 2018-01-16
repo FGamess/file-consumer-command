@@ -8,8 +8,8 @@ before_install:
   - docker-compose up -d
 
 install:
-  - docker exec -it file_consumer_php mkdir var
-  - docker exec -it file_consumer_php composer install --prefer-dist
+  - docker exec -itu www-data file_consumer_php mkdir var
+  - docker exec -itu www-data file_consumer_php composer install
 
 addons:
   sonarcloud:
