@@ -25,6 +25,6 @@ addons:
       - master
       
 script:
-  - docker exec -it file_consumer_php docker-ext-enable xdebug
+  - docker exec -it file_consumer_php docker-php-ext-enable xdebug
   - docker-exec -it file_consumer_php ./bin/phunit --coverage-clover reports/php/report --log-junit reports/php/phpunit.coverage
   - sonar-scanner
