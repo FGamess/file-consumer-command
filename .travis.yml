@@ -14,7 +14,7 @@ before_install:
 
 install:
   - mkdir var
-  - composer install
+  - docker exec -it file_consumer_php composer install
 
 addons:
   sonarcloud:
