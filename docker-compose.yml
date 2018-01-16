@@ -2,6 +2,9 @@ version: '3.2'
 
 services:
   php:
+    environment:
+      - APP_ENV=dev
+      - KERNEL_CLASS=App\Kernel
     container_name: file_consumer_php
     image: fgamess/php7-stack-symfony
     volumes:
