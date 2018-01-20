@@ -16,7 +16,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run: mkdir var
-      - run: export APP_ENV="test"
       - run:
           name: Install project dependencies
           command: composer install -n --prefer-dist
