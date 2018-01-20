@@ -1,10 +1,8 @@
-[![Build Status](https://travis-ci.org/fgamess/file-consumer-command.svg?branch=master)](https://travis-ci.org/fgamess/file-consumer-command) [![CircleCI](https://circleci.com/gh/fgamess/file-consumer-command/tree/master.svg?style=svg)](https://circleci.com/gh/fgamess/file-consumer-command/tree/master) [![Dependency Status](https://gemnasium.com/badges/github.com/fgamess/file-consumer-command.svg)](https://gemnasium.com/github.com/fgamess/file-consumer-command)
-
-
 # File Consumer Command
+[![Build Status](https://travis-ci.org/fgamess/file-consumer-command.svg?branch=master)](https://travis-ci.org/fgamess/file-consumer-command) [![CircleCI](https://circleci.com/gh/fgamess/file-consumer-command/tree/master.svg?style=svg)](https://circleci.com/gh/fgamess/file-consumer-command/tree/master) [![Dependency Status](https://gemnasium.com/badges/github.com/fgamess/file-consumer-command.svg)](https://gemnasium.com/github.com/fgamess/file-consumer-command)
 ------------------------
 
-A symfony command to display the most frequent words and their occurence using limit.
+A Symfony 4 command to display the most frequent words and their occurence using limit.
 
 ## Table of contents
 - [Prerequisites](https://github.com/FGamess/file-consumer-command#prerequisites)
@@ -24,30 +22,22 @@ Prerequisites
 ###### Tools required
 
 - Docker CE for Windows, Docker CE for Linux or Docker CE for MAC installed
-- Docker compose installed
+- Docker Compose installed
 
 ###### Set up the docker stack
 
-1. From the root folder of the application.
+Install and start the Docker stack.
 
-    cd docker
+The docker stack is composed by 2 containers : php7 (latest) and nginx. All the configuration is done.
 
-2. Install and start the Docker stack.
-
-The docker stack is composed by 2 containers : php7 (latest) and nginx. All the configuration is done. You will just need to specify the database host in Symfony parameters.yml
-
-Using Docker CE on Linux (Ubuntu, Debian, Fedora...) or Docker CE on Windows (it will use docker-compose.yml file) :
+Using Docker CE :
 
     docker-compose build
 then
 
     docker-compose up -d
-Sometimes, it is possible that the database container does not start.
-Just run this command :
 
-    docker-compose start
-
-You only need this command. It will start the containers (php7, nginx). Keep this terminal windows open.
+You only need this command. It will start the containers (php7, nginx).
 
 ###### Setting www-data as owner of the files.
 
@@ -63,13 +53,9 @@ Exit from the bash
 
 ###### Install the vendors
 
-1. Connect to the php container with the www-data user.
+Connect to the php container with the www-data user:
 
-    docker exec -itu www-data file_consumer_php bash
-
-2. Then install the vendors with composer (already installed in the php container).
-
-    composer install
+    docker exec -itu www-data file_consumer_php composer install
 
 
 How to use
@@ -77,15 +63,10 @@ How to use
 
 ###### Display the most frequent words using limit
 
-1. Connect to the php container with the www-data user.
+Connect to the php container with the www-data user:
 
 
-    docker exec -itu www-data file_consumer_php bash
-
-2. Then execute the following command
-
-
-    bin/console app:consume-file flatland.txt 100
+    docker exec -itu www-data file_consumer_php bin/console app:consume-file flatland.txt 100
 
 We actually use a file located at the root folder of this application but you can use any url targeting a file.
 
@@ -100,18 +81,18 @@ Testing
 Just run
 
 
-    vendor/bin/phpunit tests/Unit
+    ./bin/phpunit tests/Unit
 
 2. Functional tests
 
 Just run
 
 
-    vendor/bin/phpunit tests/Functional
+    ./bin/phpunit tests/Functional
 
 3. All tests
 
 Just run
 
 
-    vendor/bin/phpunit tests
+    ./bin/phpunit
