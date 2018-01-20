@@ -1,7 +1,6 @@
 version: 2
 
 jobs:
-  # Build for unit test
   build-and-unit-tests:
     docker:
       - image: circleci/php:latest-node-browsers
