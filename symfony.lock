@@ -1,37 +1,4 @@
 {
-    "doctrine/annotations": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "cb4152ebcadbe620ea2261da1a1c5a9b8cea7672"
-        }
-    },
-    "doctrine/cache": {
-        "version": "v1.7.1"
-    },
-    "doctrine/collections": {
-        "version": "v1.5.0"
-    },
-    "doctrine/common": {
-        "version": "v2.8.1"
-    },
-    "doctrine/event-manager": {
-        "version": "v1.0.0"
-    },
-    "doctrine/inflector": {
-        "version": "v1.3.0"
-    },
-    "doctrine/lexer": {
-        "version": "v1.0.1"
-    },
-    "doctrine/persistence": {
-        "version": "v1.0.0"
-    },
-    "doctrine/reflection": {
-        "version": "v1.0.0"
-    },
     "mikey179/vfsstream": {
         "version": "v1.6.5"
     },
@@ -48,22 +15,13 @@
         "version": "1.0.2"
     },
     "psr/simple-cache": {
-        "version": "1.0.0"
-    },
-    "sensio/framework-extra-bundle": {
-        "version": "4.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.0",
-            "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
-        }
+        "version": "1.0.1"
     },
     "symfony/browser-kit": {
         "version": "v4.0.3"
     },
     "symfony/cache": {
-        "version": "v4.0.3"
+        "version": "v4.1.6"
     },
     "symfony/config": {
         "version": "v4.0.3"
@@ -96,7 +54,7 @@
         "version": "v4.0.3"
     },
     "symfony/finder": {
-        "version": "v4.0.3"
+        "version": "v4.1.6"
     },
     "symfony/flex": {
         "version": "1.0",
@@ -113,7 +71,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "3.3",
-            "ref": "137a14eeb6b3f5370e7147af8aff6518504f50c7"
+            "ref": "1717e67afa995e4f01a25ba9ae7aca5b2327bcaa"
         }
     },
     "symfony/http-foundation": {
@@ -210,7 +168,7 @@
         }
     },
     "symfony/yaml": {
-        "version": "v4.0.3"
+        "version": "v4.1.6"
     },
     "twig/twig": {
         "version": "v2.4.4"
