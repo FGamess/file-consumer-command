@@ -27,4 +27,4 @@ addons:
 script:
   - docker exec -it file_consumer_php docker-php-ext-enable xdebug
   - docker exec -it file_consumer_php ./bin/phpunit --coverage-clover reports/php/phpunit.coverage.xml --log-junit reports/php/logfile.xml
-  - sonar-scanner
+#  - sonar-scanner

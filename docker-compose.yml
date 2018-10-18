@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.5'
 
 services:
   php:
@@ -10,17 +10,6 @@ services:
     volumes:
       - .:/var/www:cached
       - ./logs:/var/logs:cached
-    ports:
-      - 9000:80
-    networks:
-      - app_network
-  nginx:
-    container_name: file_consumer_nginx
-    image: fgamess/nginx-for-symfony
-    ports:
-      - 14300:80
-    volumes:
-      - ./logs/nginx:/logs/nginx
     networks:
       - app_network
       
