@@ -13,8 +13,31 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Logger\ConsoleLogger;
 use Psr\Log\LogLevel;
 
-class FileConsumerCommand extends ContainerAwareCommand
+class FileConsumerCommand extends Command
 {
+    /**
+     * @var FileConsumer $fileConsumer
+     */
+    private $fileConsumer;
+
+    /**
+     * @var StringUtil $stringUtil
+     */
+    private $stringUtil;
+
+    /**
+     * FileConsumerCommand constructor.
+     *
+     * @param FileConsumer $fileConsumer
+     * @param StringUtil   $stringUtil
+     */
+    function __construct(FileConsumer $fileConsumer, StringUtil $stringUtil)
+    {
+        $this->fileConsumer = $fileConsumer;
+        $this->stringUtil = $stringUtil;
+        parent::__construct();
+    }
+
     protected function configure()
     {
         $this
@@ -34,6 +57,12 @@ class FileConsumerCommand extends ContainerAwareCommand
         ;
     }
 
+    /**
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     *
+     * @return int|null|void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Log the 100 most frequent values
@@ -43,8 +72,6 @@ class FileConsumerCommand extends ContainerAwareCommand
         );
         
         $logger = new ConsoleLogger($output, $verbosityLevelMap);
-        $container = $this->getContainer();
-        $stringUtilService = $container->get(StringUtil::class);
         $output->writeln(
             [
                 'FileConsumer tool',
@@ -61,23 +88,23 @@ class FileConsumerCommand extends ContainerAwareCommand
 
 
         $output->writeln("Trying to get the file from ".$fileUrl);
-        $contentString = $container->get(FileConsumer::class)->getFileContent($fileUrl);
+        $contentString = $this->fileConsumer->getFileContent($fileUrl);
         $logger->info('File content retrieved successfully and converted into string.');
 
         $output->writeln('Counting all words in string...');
-        $wordsCount = $stringUtilService->countWordsInString($contentString);
+        $wordsCount = $this->stringUtil->countWordsInString($contentString);
         $logger->info('Successfully get the number of words  into an array');
 
         $output->writeln('Counting words duplicates...');
-        $wordsDuplicates = $stringUtilService->countWordsDuplicates($wordsCount);
+        $wordsDuplicates = $this->stringUtil->countWordsDuplicates($wordsCount);
         $logger->info('Successfully get the duplicates into an array');
 
         $output->writeln('Ascending sort and rerversing of the words duplicates array...');
-        $reverseArray = $stringUtilService->reverseSortWordsDuplicates($wordsDuplicates);
+        $reverseArray = $this->stringUtil->reverseSortWordsDuplicates($wordsDuplicates);
         $logger->info('Successfully reversed the array of duplicates');
 
         $output->writeln('Generating the 100 most frequent values array...');
-        $finalArray = $stringUtilService->findMostFrequentValues($reverseArray, $limit);
+        $finalArray = $this->stringUtil->findMostFrequentValues($reverseArray, $limit);
         $logger->info('Successfully generated the 100 most frequent values array !');
 
         $output->writeln('');
