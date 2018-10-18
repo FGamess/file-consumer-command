@@ -43,7 +43,7 @@ You only need this command. It will start the containers (php7, nginx).
 
 Set www-data user and group as owner of the files inside the project. Connect to the php container with the root user using this command
 
-    docker exec -it file_consumer_php bash
+    docker-composer exec php bash
 When you are in the bash run
 
     chown -R www-data:www-data .
@@ -55,7 +55,7 @@ Exit from the bash
 
 Connect to the php container with the www-data user:
 
-    docker exec -itu www-data file_consumer_php composer install
+    docker-compose exec -u www-data php composer install
 
 
 How to use
@@ -66,7 +66,7 @@ How to use
 Connect to the php container with the www-data user:
 
 
-    docker exec -itu www-data file_consumer_php bin/console app:consume-file flatland.txt 100
+    docker-compose exec -u www-data php bin/console app:consume-file flatland.txt 100
 
 We actually use a file located at the root folder of this application but you can use any url targeting a file.
 
@@ -82,13 +82,6 @@ Just run
 
 
     ./bin/phpunit tests/Unit
-
-2. Functional tests
-
-Just run
-
-
-    ./bin/phpunit tests/Functional
 
 3. All tests
 
