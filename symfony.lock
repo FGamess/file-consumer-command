@@ -23,6 +23,9 @@
     "symfony/cache": {
         "version": "v4.1.6"
     },
+    "symfony/cache-contracts": {
+        "version": "v2.0.0"
+    },
     "symfony/config": {
         "version": "v4.0.3"
     },
@@ -47,8 +50,17 @@
     "symfony/dom-crawler": {
         "version": "v4.0.3"
     },
+    "symfony/dotenv": {
+        "version": "v4.4.0"
+    },
+    "symfony/error-handler": {
+        "version": "v4.4.0"
+    },
     "symfony/event-dispatcher": {
         "version": "v4.0.3"
+    },
+    "symfony/event-dispatcher-contracts": {
+        "version": "v1.1.7"
     },
     "symfony/filesystem": {
         "version": "v4.0.3"
@@ -83,6 +95,9 @@
     "symfony/inflector": {
         "version": "v4.0.3"
     },
+    "symfony/mime": {
+        "version": "v5.0.0"
+    },
     "symfony/monolog-bridge": {
         "version": "v4.0.3"
     },
@@ -107,11 +122,17 @@
     "symfony/polyfill-ctype": {
         "version": "v1.8.0"
     },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.12.0"
+    },
     "symfony/polyfill-mbstring": {
         "version": "v1.6.0"
     },
     "symfony/polyfill-php72": {
         "version": "v1.6.0"
+    },
+    "symfony/polyfill-php73": {
+        "version": "v1.12.0"
     },
     "symfony/profiler-pack": {
         "version": "v1.0.3"
@@ -140,8 +161,26 @@
             "ref": "34eb245ce4194e7ae713558084180e2c532e7afd"
         }
     },
+    "symfony/security-core": {
+        "version": "v4.4.0"
+    },
+    "symfony/security-csrf": {
+        "version": "v5.0.0"
+    },
+    "symfony/security-guard": {
+        "version": "v4.4.0"
+    },
+    "symfony/security-http": {
+        "version": "v4.4.0"
+    },
+    "symfony/service-contracts": {
+        "version": "v2.0.0"
+    },
     "symfony/stopwatch": {
         "version": "v4.0.3"
+    },
+    "symfony/translation-contracts": {
+        "version": "v2.0.0"
     },
     "symfony/twig-bridge": {
         "version": "v4.0.3"
@@ -157,6 +196,9 @@
     },
     "symfony/var-dumper": {
         "version": "v4.0.3"
+    },
+    "symfony/var-exporter": {
+        "version": "v5.0.0"
     },
     "symfony/web-profiler-bundle": {
         "version": "3.3",

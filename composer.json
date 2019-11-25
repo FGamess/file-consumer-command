@@ -14,7 +14,7 @@
     },
     "require": {
         "php": "^7.1",
-        "mikey179/vfsStream": "^1.6",
+        "mikey179/vfsstream": "^1.6",
         "symfony/console": "^4.1",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.1",
@@ -31,7 +31,6 @@
             "@auto-scripts"
         ],
         "auto-scripts": {
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         }
@@ -51,6 +50,7 @@
     "require-dev": {
         "symfony/browser-kit": "^4.0",
         "symfony/css-selector": "^4.0",
+        "symfony/dotenv": "^4.1",
         "symfony/phpunit-bridge": "^4.0"
     }
 }
